@@ -1,0 +1,61 @@
+body {
+    background-color: #eee;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.bevs {
+    text-align: center;
+
+    i {
+        $icon-size: 100px;
+        $icon-pic-size: $icon-size * 0.5;
+
+        color: #fff;
+        background-color: #4aaaa5;
+        width: $icon-size;
+        height: $icon-size;
+        line-height: $icon-size;
+        font-size: $icon-pic-size;
+        margin: 0 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: ease-in-out 250ms;
+        margin: 5px;
+
+        &:hover,
+        &:focus {
+            background-color: darken(#4aaaa5, 10);
+            text-shadow: #333 5px 5px 5px;
+            transition: ease-in-out 250ms;
+        }
+
+        &:active {
+            transform: scale(1.1);
+        }
+    }
+
+    a {
+        &:hover,
+        &:focus {
+            text-shadow: #333 5px 5px 5px;
+            transition: ease-in-out 250ms;
+        }
+    }
+
+    h1 {
+        font-family: monospace;
+        text-align: center;
+        color: #fff;
+        padding: 20px;
+        margin: 0 20% 50px;
+        background-color: #4aaaa5;
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster+Two|Raleway&display=swap");
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+h1,
+h4 {
+  font-family: "Lobster Two", cursive;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.bevs {
+  -webkit-transition: ease-in-out 200ms;
+  transition: ease-in-out 200ms;
+  margin: 30px 0;
+}
+
+.bevs i {
+  color: #fff;
+  background-color: #4aaaa5;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+  margin: 0 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: ease-in-out 200ms;
+  transition: ease-in-out 200ms;
+}
+
+.bevs i:hover {
+  background-color: #3b8683;
+  text-shadow: #333 5px 5px 5px;
+  -webkit-transition: ease-in-out 200ms;
+  transition: ease-in-out 200ms;
+}

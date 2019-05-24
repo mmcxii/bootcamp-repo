@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two|Raleway&display=swap');
+$lobster: 'Lobster Two', cursive;
+$raleway: 'Raleway', sans-serif;
+
+body {
+    font-family: $raleway;
+}
+
+h1,
+h4 {
+    font-family: $lobster;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.bevs {
+    transition: ease-in-out 200ms;
+    margin: 30px 0;
+
+    i {
+        $icon-size: 100px;
+        $icon-pic-size: $icon-size * 0.5;
+
+        color: #fff;
+        background-color: #4aaaa5;
+        width: $icon-size;
+        height: $icon-size;
+        line-height: $icon-size;
+        font-size: $icon-pic-size;
+        margin: 0 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: ease-in-out 200ms;
+
+        &:hover {
+            background-color: darken(#4aaaa5, 10);
+            text-shadow: #333 5px 5px 5px;
+            transition: ease-in-out 200ms;
+        }
+    }
+}

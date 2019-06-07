@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Rock Paper Scissors Part 1</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Rock Paper Scissors Part 1</title>
-</head>
+    <body>
+        <img src="../Images/9-RPS-example.png" alt="" />
+        <div id="game"></div>
 
-<body>
+        <script type="text/javascript">
+            // Whenever a key is pressed, alert "pressed a button".
+            document.onkeyup = function() {
+                let userGuess, computerGuess;
+                const roshambo = ['r', 'p', 's'];
 
-  <div id="game">
-
-  </div>
-
-  <script type="text/javascript">
-    // Whenever a key is pressed, alert "pressed a button".
-    document.onkeyup = function() {
-      alert("pressed a button");
-    };
-  </script>
-
-</body>
-
+                if (userGuess === 'r' && computerGuess === 'p') {
+                    alert('Paper covers rock, Computer Wins!');
+                } else if (userGuess === 'p' && computerGuess === 'r') {
+                    alert('Paper covers rock, User wins!');
+                } else if (userGuess === 's' && computerGuess === 'r') {
+                    alert('Rock breaks scissors, Computer wins!');
+                } else if (userGuess === 'r' && computerGuess === 's') {
+                    alert('Rock breaks scissors, User wins!');
+                } else if (userGuess === 'p' && computerGuess === 's') {
+                    alert('Scissors cut paper, Computer wins!');
+                } else if (userGuess === 's' && computerGuess === 'p') {
+                    alert('Scissors cut paper, User wins!');
+                } else {
+                    alert("It's a tie!");
+                }
+            };
+        </script>
+    </body>
 </html>

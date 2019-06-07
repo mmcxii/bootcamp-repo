@@ -28,11 +28,9 @@
             // Create a Function called "isString" that takes three arguments (x, y, z).
             // "isString" determines if all three arguments are strings and logs an appropriate response to the console.
             function isString(x, y, z) {
-                if (typeof x === 'string' && typeof y === 'string' && typeof z === 'string') {
-                    console.log('All inputs are strings');
-                } else {
-                    console.log('Not all inputs are strings');
-                }
+                typeof x === 'string' && typeof y === 'string' && typeof z === 'string'
+                    ? console.log('All inputs are strings')
+                    : console.log('Not all inputs are strings');
             }
 
             // Create a Function called "vowelChecker" that takes in a single argument (x).

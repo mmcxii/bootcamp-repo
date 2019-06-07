@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Question Game</title>
+        <link rel="stylesheet" href="main.css" />
+    </head>
+    <body>
+        <div class="middle">
+            <span id="question"></span>
+            <br />
+            <br />
+            <span id="wins">Total Wins: <span id="win-counter"></span></span>
+            <br />
+            <span id="instructions">
+                Press 'T' if the answer is true,
+                <br />
+                and 'F' if the answer is false.
+            </span>
+            <br /><br />
+            <div id="prev">
+                Previous Question:
+                <br />
+                <span id="prev-q"></span>
+                <span id="prev-a"></span>
+                <br />
+                <span>You answered: <span id="user-ans"></span></span>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -38,8 +38,8 @@
                 // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
                 // ...
                 $('#random-button').on('click', function() {
-                    let sequence = '';
                     const lottoNum = () => {
+                        let sequence = '';
                         for (let i = 0; i < 9; i++) {
                             sequence += Math.floor(Math.random() * 10) + ' ';
                         }

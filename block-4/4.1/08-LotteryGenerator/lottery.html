@@ -38,9 +38,15 @@
                 // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
                 // ...
                 $('#random-button').on('click', function() {
-                    for (let i = 0; i < 9; i++) {
-                        $('#lottery-numbers').append(Math.floor(Math.random() * 10) + ' ');
-                    }
+                    let sequence = '';
+                    const lottoNum = () => {
+                        for (let i = 0; i < 9; i++) {
+                            sequence += Math.floor(Math.random() * 10) + ' ';
+                        }
+                        return $('<p>' + sequence + '</p>');
+                    };
+
+                    $('#lottery-numbers').append(lottoNum);
                 });
                 // ...
             });

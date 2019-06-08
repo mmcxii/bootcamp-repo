@@ -61,17 +61,30 @@
 
         <script type="text/javascript">
           $(document).ready(function() {
+            const nums = [1, 2, 3, 4];
+            let prev;
+            let prev2;
+            let compGuess;
 
             // Here we create the on click event that gets the user's pick
             $(".btn-choice").on("click", function() {
 
-              console.log("You clicked a button!!");
-
+              
+              
               // Add code to have the computer guess a random number between 1 and 4
+              prev2 = prev;
+              prev = compGuess;
+              while (nums.indexOf(compGuess) === nums.indexOf(prev) ||
+              nums.indexOf(compGuess) === nums.indexOf(prev2)) {
+                compGuess = nums[Math.floor(Math.random() * 4)];
+              }              
+              $("#computer-pick").text(compGuess);
+
               // Then determine which button was clicked
               // Compare the computer and user guess
               // Inform the user if the've guessed correctly or incorrectly
-
+              $("#result").text(compGuess === parseInt(this.value) ? 'Nailed it!' : 'Loser! Very Sad!');
+              
             });
           });
 

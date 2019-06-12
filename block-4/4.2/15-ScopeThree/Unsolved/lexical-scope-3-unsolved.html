@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Lexical Scope</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Lexical Scope</title>
+    </head>
+    <body>
+        <h2>Let's Talk About Scope!</h2>
 
-  <h2>Let's Talk About Scope!</h2>
+        <script type="text/javascript">
+            // Example One: Global Scope
+            // -------------------------------------------
+            var a = 1;
+            function one() {
+                alert('One: ' + a);
+            }
 
-  <script type="text/javascript">
+            // What will get alerted?
+            one(); // One: 1
 
-    // Example One: Global Scope
-    // -------------------------------------------
-    var a = 1;
-    function one() {
-      alert("One: " + a);
-    }
+            // Example Two: Local Scope
+            // -------------------------------------------
+            function twotop() {
+                function two(a) {
+                    alert('Two: ' + a);
+                }
 
-    // What will get alerted?
-    one();
+                two(a);
+            }
 
-    // Example Two: Local Scope
-    // -------------------------------------------
-    function twotop() {
+            // What will get alerted?
+            twotop(); // Two: 1
 
-      function two(a) {
-        alert("Two: " + a);
-      }
+            // Example Three: Local Scope
+            // -------------------------------------------
+            var a = 5;
+            function three() {
+                var a = 3;
+                alert('Three: ' + a);
+            }
 
-      two(a);
-    }
+            // What will get alerted?
+            three(); // Three: 3
 
-    // What will get alerted?
-    twotop();
+            // Example Four: Local Scope
+            // -------------------------------------------
+            function first() {
+                var a = 5;
 
-    // Example Three: Local Scope
-    // -------------------------------------------
-    var a = 5;
-    function three() {
+                function second() {
+                    var a = 3;
 
-      var a = 3;
-      alert("Three: " + a);
-    }
+                    function third() {
+                        alert('Four: ' + a); // Four: 3
+                    }
 
-    // What will get alerted?
-    three();
+                    third();
+                }
 
-    // Example Four: Local Scope
-    // -------------------------------------------
-    function first() {
-      var a = 5;
+                second();
 
-      function second() {
-        var a = 3;
+                alert('Five: ' + a);
+            }
 
-        function third() {
-          alert("Four: " + a);
-        }
-
-        third();
-      }
-
-      second();
-
-      alert("Five: " + a);
-    }
-
-    // What will get alerted?
-    first();
-
-  </script>
-</body>
+            // What will get alerted?
+            first(); // Five: 5
+        </script>
+    </body>
 </html>

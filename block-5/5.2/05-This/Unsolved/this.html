@@ -3,81 +3,65 @@
 <!DOCTYPE html>
 
 <html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <title>What is this?</title>
+    </head>
 
-  <head>
+    <body>
+        <button id="button">CLICK ME!</button>
 
-    <meta charset="UTF-8">
-    <title>What is this?</title>
+        <!-- jQuery -->
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+        ></script>
 
-  </head>
+        <!-- Begin our custom JavaScript -->
+        <script type="text/javascript">
+            var outside = function() {
+                //  1. What will be console logged out? What is *this* in this case?
+                console.log(this); // Window
+            };
 
-  <body>
+            outside();
 
-    <button id="button">CLICK ME!</button>
+            $('#button').on('click', function() {
+                //  2. What will be console logged out? What is *this* in this case?
+                console.log(this); // Button HTML
+            });
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            var bob = {
+                firstName: 'Bob',
+                lastName: 'Smith',
+                whoIsBob: function() {
+                    console.log(this);
+                },
 
-    <!-- Begin our custom JavaScript -->
-    <script type="text/javascript">
+                //  3. Put something inside of the following function so that it works
+                fullName: function() {
+                    console.log(`${this.firstName} ${this.lastName}`);
+                },
+            };
 
-    var outside = function() {
+            //  4. What will the console log output if the next function gets called?
+            bob.whoIsBob(); // Bob object
 
-      //  1. What will be console logged out? What is *this* in this case?
-      console.log(this);
+            //  5. Fill in the code inside the fullName function above
+            //     so that the below code console.logs out Bob's full name
+            //     using the firstName and lastName properties
+            bob.fullName();
 
-    };
+            //  6. Make the "theChosenOne" function, log "Keanu Reeves"
+            //     Our code goes below....
 
-    outside();
+            //     Without editing any of the code below.
+            //     Use only the properties in "this."
+            var theChosenOne = function() {
+                console.log(this.firstName + ' ' + this.lastName);
+            };
 
-    $("#button").on("click", function() {
-
-      //  2. What will be console logged out? What is *this* in this case?
-      console.log(this);
-    });
-
-    var bob = {
-      firstName: "Bob",
-      lastName: "Smith",
-      whoIsBob: function() {
-        console.log(this);
-      },
-
-      //  3. Put something inside of the following function so that it works
-      fullName: function() {
-
-      }
-    };
-
-    //  4. What will the console log output if the next function gets called?
-    bob.whoIsBob();
-
-    //  5. Fill in the code inside the fullName function above
-    //     so that the below code console.logs out Bob's full name
-    //     using the firstName and lastName properties
-    bob.fullName();
-
-    //  6. Make the "theChosenOne" function, log "Keanu Reeves"
-    //     Our code goes below....
-
-
-
-    //     Without editing any of the code below.
-    //     Use only the properties in "this."
-    var theChosenOne = function() {
-
-      console.log(this.firstName + " " + this.lastName);
-
-    };
-
-    theChosenOne();
-
-    </script>
-
-  </body>
-
+            theChosenOne();
+        </script>
+    </body>
 </html>
-
-
-
-

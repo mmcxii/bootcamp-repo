@@ -1,7 +1,7 @@
 // Step 1:
 // Use the following Audio file below:
 
-var audio = new Audio("raven.mp3");
+var audio = new Audio('raven.mp3');
 
 //  Step 2: do the following between the --- comments below
 //  after 5 seconds, execute the fiveSeconds function
@@ -9,25 +9,48 @@ var audio = new Audio("raven.mp3");
 //  after 15 seconds, execute the timeUp function
 
 // ---------------------
-// CODE STEP TWO HERE
+
+setTimeout(() => {
+    fiveSeconds();
+}, 5000);
+
+setTimeout(() => {
+    tenSeconds();
+}, 10000);
+
+setTimeout(() => {
+    timeUp();
+}, 15000);
 // ---------------------
 
 // Step 3:
 // Fill in the blanks to these functions.
 function fiveSeconds() {
-  // in the element with an id of `time-left` add an h2 saying About 10 Seconds Left!
-  // console log 10 seconds left
+    // in the element with an id of `time-left` add an h2 saying About 10 Seconds Left!
+    $('#time-left')
+        .empty()
+        .append($('<h2>').text('About 10 Seconds Left!'));
+    // console log 10 seconds left
+    console.log('10 seconds left');
 }
 
 function tenSeconds() {
-  // in the element with an id of `time-left` add an h2 saying About 5 Seconds Left!
-  // console log 5 seconds left
+    // in the element with an id of `time-left` add an h2 saying About 5 Seconds Left!
+    $('#time-left')
+        .empty()
+        .append($('<h2>').text('About 5 Seconds Left!'));
+    // console log 5 seconds left
+    console.log('5 seconds left');
 }
 
 function timeUp() {
-  // in the element with an id of `time-left` add an h2 saying Time's Up!
-  // console log done
+    // in the element with an id of `time-left` add an h2 saying Time's Up!
+    $('#time-left')
+        .empty()
+        .append($('<h2>').text("Time's up!"));
+    // console log done
+    console.log('done');
 
-  // The following line will play the audio file above
-  audio.play();
+    // The following line will play the audio file above
+    audio.play();
 }

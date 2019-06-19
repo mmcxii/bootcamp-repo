@@ -1,64 +1,57 @@
 <!DOCTYPE html>
 
 <html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
 
-  <head>
+    <body>
+        <div id="show-number"></div>
 
-    <meta charset="UTF-8">
-    <title>Document</title>
+        <br />
 
-  </head>
+        <button id="stop">Stop</button>
+        <button id="resume">Resume</button>
 
-  <body>
+        <!-- jQuery -->
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+        ></script>
 
-    <div id="show-number"></div>
+        <!-- Script -->
+        <script type="text/javascript">
+            var number = 100;
 
-    <br>
+            var intervalId;
 
-    <button id="stop">Stop</button>
-    <button id="resume">Resume</button>
+            $('#stop').on('click', stop);
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            $('#resume').on('click', run);
 
-    <!-- Script -->
-    <script type="text/javascript">
+            function run() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+            }
 
-    var number = 100;
+            function decrement() {
+                number--;
 
-    var intervalId;
+                $('#show-number').html('<h2>' + number + '</h2>');
 
-    $("#stop").on("click", stop);
+                if (number === 0) {
+                    stop();
 
-    $("#resume").on("click", run);
+                    alert('Time Up!');
+                }
+            }
 
-    function run() {
-      intervalId = setInterval(decrement, 1000);
-    }
+            function stop() {
+                clearInterval(intervalId);
+            }
 
-    function decrement() {
-
-      number--;
-
-      $("#show-number").html("<h2>" + number + "</h2>");
-
-      if (number === 0) {
-
-        stop();
-
-        alert("Time Up!");
-      }
-    }
-
-    function stop() {
-
-      clearInterval(intervalId);
-    }
-
-    run();
-
-    </script>
-
-  </body>
-
+            run();
+        </script>
+    </body>
 </html>

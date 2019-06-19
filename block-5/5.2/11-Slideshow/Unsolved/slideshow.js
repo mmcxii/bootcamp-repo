@@ -27,7 +27,7 @@ function nextImage() {
     count++;
 
     // TODO: Show the loading gif in the "image-holder" div.
-    $('#image-holder').html('<img src=' + 'images/loading.gif' + " width='400px'>");
+    $('#image-holder').html('<img src=' + 'images/loading.gif>');
 
     // TODO: Use a setTimeout to run displayImage after 1 second.
     setTimeout(displayImage, 1000);

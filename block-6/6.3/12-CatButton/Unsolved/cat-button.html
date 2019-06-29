@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>The Magical Cat Button</title>
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>The Magical Cat Button</title>
-</head>
+    <body>
+        <button id="cat-button">magical cat button</button>
+        <div id="images"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            //
+            $('#cat-button').on('click', function() {
+                // builds a url to call the api with
+                var queryURL =
+                    'https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=cats';
 
-<body>
-  <button id="cat-button">magical cat button</button>
-  <div id="images">
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    //
-    $("#cat-button").on("click", function() {
+                // calls api with ajax GET and url
+                $.ajax({
+                    url: queryURL,
+                    method: 'GET',
+                })
 
-      //
-      var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=cats";
+                    // fires a function after the api responds
+                    .then(function(response) {
+                        // targets the url for the image
+                        var imageUrl = response.data.image_original_url;
 
-      //
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
+                        // creates a new image tag
+                        var catImage = $('<img>');
 
-        //
-        .then(function(response) {
+                        // sets the source of the image to the url and gives an alt text
+                        catImage.attr('src', imageUrl);
+                        catImage.attr('alt', 'cat image');
 
-          //
-          var imageUrl = response.data.image_original_url;
-
-          //
-          var catImage = $("<img>");
-
-          //
-          catImage.attr("src", imageUrl);
-          catImage.attr("alt", "cat image");
-
-          //
-          $("#images").prepend(catImage);
-        });
-    });
-  </script>
-</body>
-
+                        // prepends the image in front of previous image(s)
+                        $('#images').prepend(catImage);
+                    });
+            });
+        </script>
+    </body>
 </html>

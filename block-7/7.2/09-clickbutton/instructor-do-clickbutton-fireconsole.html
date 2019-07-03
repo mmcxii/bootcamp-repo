@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Click Button with Firebase!</title>
+    </head>
 
-<head>
+    <body>
+        <!-- Text with spanID that gets filled with content -->
+        <p>After clicking, go to the firebase database to see the click counter go up.</p>
+        <p>
+            While clicking, put this html file to the left, and show the firebase database on the
+            right to show how firebase is real time!
+        </p>
 
-  <meta charset="UTF-8">
-  <title>Click Button with Firebase!</title>
+        <!-- Button -->
+        <button id="click-button">Click Me!!!!</button>
+        <button id="other-button">Name</button>
 
-</head>
+        <!-- JQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<body>
+        <!-- ================================================================================== -->
 
-  <!-- Text with spanID that gets filled with content -->
-  <p>After clicking, go to the firebase database to see the click counter go up.</p>
-  <p>
-    While clicking, put this html file to the left, and show the firebase database on the right to show how firebase is real time!
-  </p>
+        <!-- Firebase Core JavaScript Link -->
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
 
-  <!-- Button -->
-  <button id="click-button">Click Me!!!!</button>
+        <!-- Specific Firebase products we want -->
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
-  <!-- JQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            // Initialize Firebase
+            // This is the code we copied and pasted from our app page
+            var config = {
+                apiKey: 'AIzaSyCeoZ8F3J9Jrtr2NpEyPAUrqW_et0fEeiY',
+                authDomain: 'in-class-test-746ef.firebaseapp.com',
+                databaseURL: 'https://in-class-test-746ef.firebaseio.com',
+                projectId: 'in-class-test-746ef',
+                storageBucket: '',
+                messagingSenderId: '949053777825',
+                appId: '1:949053777825:web:79a2db51506fda6f',
+            };
 
-  <!-- ================================================================================== -->
+            firebase.initializeApp(config);
 
-  <!-- Firebase Core JavaScript Link -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+            // Variables
+            // ================================================================================
 
-   <!-- Specific Firebase products we want -->
-   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+            // Get a reference to the database service
+            var database = firebase.database();
 
-  <script>
-    // Initialize Firebase
-    // This is the code we copied and pasted from our app page
-    var config = {
-      apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
-      authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
-      databaseURL: "https://fir-click-counter-7cdb9.firebaseio.com",
-      projectId: "fir-click-counter-7cdb9",
-      storageBucket: "fir-click-counter-7cdb9.appspot.com"
-    };
+            // Initializing our click count at 0
+            var clickCounter = 0;
 
-    firebase.initializeApp(config);
+            // Functions
+            // ================================================================================
 
-    // Variables
-    // ================================================================================
+            const name = prompt('Como se llama?');
 
-    // Get a reference to the database service
-    var database = firebase.database();
+            $('#other-button').on('click', () => {
+                database.ref().set({
+                    name: name,
+                });
+            });
 
-    // Initializing our click count at 0
-    var clickCounter = 0;
+            // On Click
+            $('#click-button').on('click', function() {
+                // Add 1 to clickCounter
+                clickCounter++;
 
-    // Functions
-    // ================================================================================
+                // **** Store Click Data to Firebase in a JSON property called clickCount *****
+                // **** Note how we are using the Firebase .set() method ****
+                // **** .ref() refers to the path you want to save your data to
+                // **** Since we left .ref() blank, it will save to the root directory
+                database.ref().set({
+                    clickCount: clickCounter,
+                });
 
-    // On Click
-    $("#click-button").on("click", function() {
-
-      // Add 1 to clickCounter
-      clickCounter++;
-
-      // **** Store Click Data to Firebase in a JSON property called clickCount *****
-      // **** Note how we are using the Firebase .set() method ****
-      // **** .ref() refers to the path you want to save your data to
-      // **** Since we left .ref() blank, it will save to the root directory
-      database.ref().set({
-        clickCount: clickCounter
-      });
-
-      // Now! go to https://fir-click-counter-7cdb9.firebaseio.com/ to see the impact to the DB
-    });
-  </script>
-
-</body>
-
+                // Now! go to https://fir-click-counter-7cdb9.firebaseio.com/ to see the impact to the DB
+            });
+        </script>
+    </body>
 </html>

@@ -1,0 +1,17 @@
+{
+    "name": "13.2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "expressInClass.js",
+    "dependencies": {
+        "express": "^4.17.1",
+        "nodemon": "^1.19.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "dev": "nodemon expressInClass"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
